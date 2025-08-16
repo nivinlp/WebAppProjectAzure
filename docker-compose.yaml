@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker-jenkins-az-terrform  #image has jenkins,terraform and az cli installed.
+    container_name: jenkins
+    ports:
+      - "8080:8080"   #jenkins url port
+      - "5000:5000"   #jenkins agents port
+    volumes:
+      - jenkins_home:/var/jenkins_home    #makes persistent volume in docker
+    networks:
+      - project-network
+
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana-monitor
+    ports:
+      - "3000:3000"   #grafana url port
+    networks:
+      - project-network
+
+
+volumes:
+  jenkins_home:
+
+networks:
+  project-network:
+    

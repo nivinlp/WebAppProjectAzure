@@ -1,0 +1,4 @@
+.terraform*
+git_token.txt
+.vscode
+*.tfstate
