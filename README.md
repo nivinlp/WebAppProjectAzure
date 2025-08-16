@@ -26,5 +26,7 @@ This project demonstrates a full pipeline to deploy an **Azure Linux Web App** u
 ## Start Docker Containers
 docker-compose up -d --build
 
+**Grafana configuration steps will be added soon
+
 
 
